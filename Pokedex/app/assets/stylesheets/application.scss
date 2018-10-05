@@ -39,6 +39,18 @@
    }
  }
 
+ .sidebar {
+   border-top: 1px solid grey;
+   padding: 5px 10px;
+   cursor: pointer;
+   list-style: none;
+ }
+
+.pokepics {
+  width: 30px;
+  height: 30px;
+ }
+
  nav {
    width: 900px;
    background-color: $red;

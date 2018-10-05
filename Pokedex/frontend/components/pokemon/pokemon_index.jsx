@@ -1,23 +1,25 @@
 import React from 'react';
+import PokemonIndexItem from './pokemon_index_item';
+import { Switch, Link, Route } from 'react-router-dom';
+import PokemonDetail from './pokemon_detail';
 
 class PokemonIndex extends React.Component {
   componentDidMount() {
-    // debugger
+
    this.props.requestAllPokemon();
   }
 
   render() {
+    const { pokemon } = this.props;
+    const pokemonItems = pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />);
     return (
     <div>
-      <ul>
-        {
-          this.props.pokemon.map(pokemon =>
-            <li>
-              {pokemon.name}
-            </li>
-          )
-        }
-      </ul>
+      <Switch>
+      <Route path='/pokemon/:pokemonId' component={PokemonDetail}></Route>
+        <ul>
+          {pokemonItems}
+        </ul>
+      </Switch>
     </div>
     );
   }
